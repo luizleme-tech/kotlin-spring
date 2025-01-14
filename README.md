@@ -68,7 +68,9 @@ class MarcoController {
 ---
 
 ## Autor
-Desenvolvido por [Seu Nome](https://github.com/seu-usuario).
+| [<img loading="lazy" src="https://avatars.githubusercontent.com/u/160872945?v=4" width=115><br><sub>Luiz Henrique Leme</sub>](https://github.com/luizleme-tech) |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+
 
 ---
 
