@@ -1,5 +1,6 @@
 package com.luizlemetech.forum.controller
 
+import com.luizlemetech.forum.dto.AtualizacaoTopicoForm
 import com.luizlemetech.forum.dto.NovoTopicoForm
 import com.luizlemetech.forum.dto.TopicoView
 import com.luizlemetech.forum.service.TopicoService
@@ -23,5 +24,10 @@ class TopicoController(private val service: TopicoService) {
     @PostMapping
     fun cadastrar(@RequestBody @Valid dto: NovoTopicoForm) {
         service.cadastrar(dto)
+    }
+
+    @PutMapping
+    fun atualizar(@RequestBody @Valid from: AtualizacaoTopicoForm) {
+        service.atualizar(from)
     }
 }

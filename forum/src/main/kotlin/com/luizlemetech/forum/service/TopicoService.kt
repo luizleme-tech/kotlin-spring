@@ -1,5 +1,6 @@
 package com.luizlemetech.forum.service
 
+import com.luizlemetech.forum.dto.AtualizacaoTopicoForm
 import com.luizlemetech.forum.dto.NovoTopicoForm
 import com.luizlemetech.forum.dto.TopicoView
 import com.luizlemetech.forum.mapper.TopicoFormMapper
@@ -31,5 +32,21 @@ class TopicoService(
         val topico = topicoFormMapper.map(form)
         topico.id = topicos.size.toLong() + 1
         topicos = topicos.plus(topico)
+    }
+
+    fun atualizar(form: AtualizacaoTopicoForm) {
+        val topico = topicos.stream().filter {
+            t -> t.id == form.id
+        }.findFirst().get()
+        topicos = topicos.minus(topico).plus(Topico(
+            id = form.id,
+            titulo = form.titulo,
+            mensagem = form.mensagem,
+            autor = topico.autor,
+            curso = topico.curso,
+            respostas = topico.respostas,
+            status = topico.status,
+            dataCriacao = topico.dataCriacao
+        ))
     }
 }
