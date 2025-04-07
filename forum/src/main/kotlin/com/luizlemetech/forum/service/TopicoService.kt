@@ -1,72 +1,65 @@
 package com.luizlemetech.forum.service
 
-import com.luizlemetech.forum.model.Curso
+import com.luizlemetech.forum.dto.AtualizacaoTopicoForm
+import com.luizlemetech.forum.dto.NovoTopicoForm
+import com.luizlemetech.forum.dto.TopicoView
+import com.luizlemetech.forum.exception.NotFoundException
+import com.luizlemetech.forum.mapper.TopicoFormMapper
+import com.luizlemetech.forum.mapper.TopicoViewMapper
 import com.luizlemetech.forum.model.Topico
-import com.luizlemetech.forum.model.Usuario
 import org.springframework.stereotype.Service
+import java.util.stream.Collectors
 
 @Service
-class TopicoService(private var topicos: List<Topico>) {
+class TopicoService(
+    private var topicos: List<Topico> = ArrayList(),
+    private val topicoViewMapper: TopicoViewMapper,
+    private val topicoFormMapper: TopicoFormMapper,
+    private val notFoundMessage: String = "Topico nao encontrado",
+    ) {
 
-    init {
-        val topico = Topico(
-            id = 1,
-            titulo = "Duvida Kotlin",
-            mensagem = "Variaveis no Kotlin",
-            curso = Curso(
-                id = 1,
-                nome = "Kotlin",
-                categoria = "Programacao"
-            ),
-            autor = Usuario(
-                id = 1,
-                nome = "Ana",
-                email = "ana@email.com",
-            )
-        )
-
-        val topico2 = Topico(
-            id = 2,
-            titulo = "Duvida Kotlin 2",
-            mensagem = "Variaveis no Kotlin 2",
-            curso = Curso(
-                id = 1,
-                nome = "Kotlin",
-                categoria = "Programacao"
-            ),
-            autor = Usuario(
-                id = 1,
-                nome = "Ana",
-                email = "ana@email.com",
-            )
-        )
-
-        val topico3 = Topico(
-            id = 1,
-            titulo = "Duvida Kotlin 3",
-            mensagem = "Variaveis no Kotlin 3",
-            curso = Curso(
-                id = 1,
-                nome = "Kotlin",
-                categoria = "Programacao"
-            ),
-            autor = Usuario(
-                id = 1,
-                nome = "Ana",
-                email = "ana@email.com",
-            )
-        )
-        topicos = listOf(topico, topico2, topico3)
+    fun listar(): List<TopicoView> {
+        return topicos.stream().map {t -> topicoViewMapper.map(t) }.collect(Collectors.toList())
     }
 
-    fun listar(): List<Topico> {
-        return topicos
-    }
-
-    fun buscarPorId(id: Long): Topico {
-        return topicos.stream().filter { t ->
+    fun buscarPorId(id: Long): TopicoView {
+        val topico =  topicos.stream().filter { t ->
             t.id == id
-        }.findFirst().get()
+        }.findFirst().orElseThrow { NotFoundException(notFoundMessage) }
+        return topicoViewMapper.map(topico)
     }
 
+
+    fun cadastrar(form: NovoTopicoForm): TopicoView {
+        val topico = topicoFormMapper.map(form)
+        topico.id = topicos.size.toLong() + 1
+        topicos = topicos.plus(topico)
+        return topicoViewMapper.map(topico)
+    }
+
+    fun atualizar(form: AtualizacaoTopicoForm): TopicoView {
+        val topico = topicos.stream().filter {
+            t -> t.id == form.id
+        }.findFirst().orElseThrow { NotFoundException(notFoundMessage) }
+        val topicoAtualizado = Topico(
+            id = form.id,
+            titulo = form.titulo,
+            mensagem = form.mensagem,
+            autor = topico.autor,
+            curso = topico.curso,
+            respostas = topico.respostas,
+            status = topico.status,
+            dataCriacao = topico.dataCriacao
+        )
+        topicos = topicos.minus(topico).plus(topicoAtualizado)
+        return topicoViewMapper.map(topicoAtualizado)
+    }
+
+    fun deletar(id: Long) {
+        val topico = topicos.stream().filter {
+                t -> t.id == id
+        }.findFirst().orElseThrow{NotFoundException(notFoundMessage)}
+        topicos = topicos.minus(topico)
+
+    }
 }
