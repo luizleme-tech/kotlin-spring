@@ -4,7 +4,7 @@ import java.time.LocalDateTime
 
 data class ErrorView(
     val timestampo: LocalDateTime = LocalDateTime.now(),
-    val stauts: Int,
+    val status: Int,
     val error: String,
     val message: String?,
     val path: String
