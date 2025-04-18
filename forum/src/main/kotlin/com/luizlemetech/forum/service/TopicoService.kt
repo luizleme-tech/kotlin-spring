@@ -15,8 +15,9 @@ import java.util.stream.Collectors
 class TopicoService(
     private val repository: TopicoRepository,
     private val topicoViewMapper: TopicoViewMapper,
-    private val topicoFormMapper: TopicoFormMapper,
-    private val notFoundMessage: String = "Topico nao encontrado") {
+    private val topicoFormMapper: TopicoFormMapper) {
+
+    private val notFoundMessage: String = "Topico nao encontrado"
 
     fun listar(): List<TopicoView> {
         return repository.findAll()
