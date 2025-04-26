@@ -65,6 +65,35 @@ class MarcoController {
 }
 ```
 
+### Observação:
+
+## 💾 Inicialização automática do banco H2 com Spring Boot 3.4.1
+
+Para garantir que o banco de dados H2 seja inicializado corretamente com os dados de `data.sql`, após as tabelas serem criadas pelas entidades JPA, utilize a seguinte configuração no `application.yml`:
+
+```yaml
+spring:
+  datasource:
+    url: jdbc:h2:mem:forum
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    defer-datasource-initialization: true  # ⚠️ Essencial para que o data.sql seja executado após o Hibernate
+
+  sql:
+    init:
+      mode: always
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+```
+
 ---
 
 ## Autor
