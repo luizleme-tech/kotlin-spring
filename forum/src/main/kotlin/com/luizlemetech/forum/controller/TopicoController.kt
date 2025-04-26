@@ -2,6 +2,7 @@ package com.luizlemetech.forum.controller
 
 import com.luizlemetech.forum.dto.AtualizacaoTopicoForm
 import com.luizlemetech.forum.dto.NovoTopicoForm
+import com.luizlemetech.forum.dto.TopicoPorCategoriaDto
 import com.luizlemetech.forum.dto.TopicoView
 import com.luizlemetech.forum.service.TopicoService
 import jakarta.validation.Valid
@@ -64,5 +65,10 @@ class TopicoController(private val service: TopicoService) {
     @CacheEvict(value = ["topicos"], allEntries = true)
     fun deletar(@PathVariable id: Long) {
         service.deletar(id)
+    }
+    
+    @GetMapping("/relatorio")
+    fun relatorio(): List<TopicoPorCategoriaDto> {
+        return service.relatorio()
     }
 }

@@ -2,6 +2,7 @@ package com.luizlemetech.forum.service
 
 import com.luizlemetech.forum.dto.AtualizacaoTopicoForm
 import com.luizlemetech.forum.dto.NovoTopicoForm
+import com.luizlemetech.forum.dto.TopicoPorCategoriaDto
 import com.luizlemetech.forum.dto.TopicoView
 import com.luizlemetech.forum.exception.NotFoundException
 import com.luizlemetech.forum.mapper.TopicoFormMapper
@@ -57,5 +58,9 @@ class TopicoService(
     @Transactional
     fun deletar(id: Long) {
         repository.deleteById(id)
+    }
+
+    fun relatorio(): List<TopicoPorCategoriaDto> {
+        return repository.relatorio();
     }
 }
