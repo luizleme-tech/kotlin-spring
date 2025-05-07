@@ -1,0 +1,105 @@
+<mxfile host="Electron" modified="2025-05-07T00:32:32.487Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.0.2 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="-EpsDKWy0A4PMPWWM5PJ" version="23.0.2" type="device" pages="2">
+  <diagram name="DevOps" id="qeGwK8HbxEXgVT1wGYrG">
+    <mxGraphModel dx="1079" dy="449" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="TzyoIMAmTbPeeiS_gisb-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="TzyoIMAmTbPeeiS_gisb-1" target="TzyoIMAmTbPeeiS_gisb-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TzyoIMAmTbPeeiS_gisb-1" value="Dev" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="110" y="300" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="TzyoIMAmTbPeeiS_gisb-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="TzyoIMAmTbPeeiS_gisb-2" target="TzyoIMAmTbPeeiS_gisb-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TzyoIMAmTbPeeiS_gisb-2" value="Entregavel" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="200" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="TzyoIMAmTbPeeiS_gisb-16" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;shadow=0;flowAnimation=0;" edge="1" parent="1" source="TzyoIMAmTbPeeiS_gisb-4" target="TzyoIMAmTbPeeiS_gisb-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TzyoIMAmTbPeeiS_gisb-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="TzyoIMAmTbPeeiS_gisb-4" target="TzyoIMAmTbPeeiS_gisb-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TzyoIMAmTbPeeiS_gisb-18" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="TzyoIMAmTbPeeiS_gisb-4" target="TzyoIMAmTbPeeiS_gisb-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TzyoIMAmTbPeeiS_gisb-4" value="Infra" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="360" y="300" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="TzyoIMAmTbPeeiS_gisb-11" value="Teste" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="540" y="190" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="TzyoIMAmTbPeeiS_gisb-12" value="Produção" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="540" y="390" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="TzyoIMAmTbPeeiS_gisb-13" value="Homologação" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="540" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="TzyoIMAmTbPeeiS_gisb-24" value="&lt;h1&gt;DevOps&lt;/h1&gt;&lt;p&gt;DevOps é uma abordagem que põe ênfase na cultura empresarial, na automação (para evitar conflitos entre equipes, eliminando processos manuais) e no design de plataforma. Este tem como objetivo proporcionar maior valor aos negócios e aumentar a capacidade de resposta às mudanças por meio de entregas de serviços rápidos e de alta qualidade.&lt;br style=&quot;border-color: var(--border-color); padding: 0px; margin: 0px;&quot;&gt;Isso é alcançado através de entregas rápidas e de alta qualidade de serviços de TI interativos. Adotar o DevOps implica na integração de aplicações à infraestrutura, incluindo aplicações modernas e nativas em nuvem.&lt;br style=&quot;border-color: var(--border-color); padding: 0px; margin: 0px;&quot;&gt;Diante das limitações encontradas no processo tradicional de implantação (deploy), buscamos mais agilidade, resultando na adoção do DevOps. Agora, com o DevOps, as equipes de operações e infraestrutura estão mais próximas da equipe de desenvolvimento. Embora cada equipe ainda execute atividades específicas, a abordagem é mais integrada, visando acelerar o processo de entrega.&lt;br style=&quot;border-color: var(--border-color); padding: 0px; margin: 0px;&quot;&gt;Essa implementação será realizada utilizando ferramentas que serão abordadas ao longo do curso, como containers e deploy em provedores de nuvem. Dessa forma, não será mais necessário manter uma grande quantidade de servidores físicos, CPDs específicos, entre outros elementos. Exploraremos, neste curso, a aplicação dessas ferramentas de automação para facilitar a entrega dos nossos sistemas.&lt;br&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="520" width="550" height="320" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="ESlW1rMT5HP7rTPQBJwS" name="Container">
+    <mxGraphModel dx="527" dy="219" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="c7fzP9ZRDHX16IZHqOXV-1" value="Aplicação (.jar)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="290" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c7fzP9ZRDHX16IZHqOXV-11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="c7fzP9ZRDHX16IZHqOXV-5" target="c7fzP9ZRDHX16IZHqOXV-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c7fzP9ZRDHX16IZHqOXV-5" value="Teste" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c7fzP9ZRDHX16IZHqOXV-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="c7fzP9ZRDHX16IZHqOXV-6" target="c7fzP9ZRDHX16IZHqOXV-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c7fzP9ZRDHX16IZHqOXV-6" value="Homologação" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="280" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c7fzP9ZRDHX16IZHqOXV-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="c7fzP9ZRDHX16IZHqOXV-7" target="c7fzP9ZRDHX16IZHqOXV-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c7fzP9ZRDHX16IZHqOXV-7" value="Produção" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="360" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c7fzP9ZRDHX16IZHqOXV-8" value="" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="570" y="195" width="60" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c7fzP9ZRDHX16IZHqOXV-9" value="" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="570" y="275" width="60" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c7fzP9ZRDHX16IZHqOXV-10" value="" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="570" y="355" width="60" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c7fzP9ZRDHX16IZHqOXV-24" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="c7fzP9ZRDHX16IZHqOXV-19" target="c7fzP9ZRDHX16IZHqOXV-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c7fzP9ZRDHX16IZHqOXV-19" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="520" width="230" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="c7fzP9ZRDHX16IZHqOXV-20" value="Aplicação (.jar)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="135" y="570" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c7fzP9ZRDHX16IZHqOXV-21" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="745" width="230" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="c7fzP9ZRDHX16IZHqOXV-22" value="" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="165" y="790" width="60" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c7fzP9ZRDHX16IZHqOXV-25" value="Container" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#999999;fontStyle=3" vertex="1" parent="1">
+          <mxGeometry x="80" y="520" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="c7fzP9ZRDHX16IZHqOXV-27" value="Container" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#999999;fontStyle=3" vertex="1" parent="1">
+          <mxGeometry x="80" y="745" width="60" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
