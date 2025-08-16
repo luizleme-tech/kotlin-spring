@@ -33,9 +33,9 @@ class TopicoController(private val service: TopicoService) {
     @GetMapping
     @Cacheable("topicos")
     fun listar(
-            @RequestParam(required=false) nomeCurso: String?,
-            @PageableDefault(size = 5, sort = ["dataCriacao"], direction = Sort.Direction.DESC) paginacao: Pageable
-    ): Page<TopicoView>{
+        @RequestParam(required = false) nomeCurso: String?,
+        @PageableDefault(size = 5, sort = ["dataCriacao"], direction = Sort.Direction.DESC) paginacao: Pageable
+    ): Page<TopicoView> {
         return service.listar(nomeCurso, paginacao)
     }
 
@@ -46,17 +46,19 @@ class TopicoController(private val service: TopicoService) {
 
     @PostMapping
     @CacheEvict(value = ["topicos"], allEntries = true)
-    fun cadastrar(@RequestBody @Valid dto: NovoTopicoForm,
-                  uriBuilder: UriComponentsBuilder): ResponseEntity<TopicoView> {
+    fun cadastrar(
+        @RequestBody @Valid dto: NovoTopicoForm,
+        uriBuilder: UriComponentsBuilder
+    ): ResponseEntity<TopicoView> {
         val topicoView = service.cadastrar(dto)
-        val uri = uriBuilder.path("/topicos/${topicoView.id}").build().toUri()
+        val uri = uriBuilder.path("/topicos/{id}").buildAndExpand(topicoView.id).toUri()
         return ResponseEntity.created(uri).body(topicoView)
     }
 
     @PutMapping
     @CacheEvict(value = ["topicos"], allEntries = true)
-    fun atualizar(@RequestBody @Valid from: AtualizacaoTopicoForm): ResponseEntity<TopicoView> {
-        val topicoView = service.atualizar(from)
+    fun atualizar(@RequestBody @Valid form: AtualizacaoTopicoForm): ResponseEntity<TopicoView> {
+        val topicoView = service.atualizar(form)
         return ResponseEntity.ok(topicoView)
     }
 
@@ -66,9 +68,10 @@ class TopicoController(private val service: TopicoService) {
     fun deletar(@PathVariable id: Long) {
         service.deletar(id)
     }
-    
+
     @GetMapping("/relatorio")
     fun relatorio(): List<TopicoPorCategoriaDto> {
         return service.relatorio()
     }
 }
+

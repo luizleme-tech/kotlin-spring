@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.security.web.SecurityFilterChain
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher
 
 @Configuration
 @EnableWebSecurity
@@ -22,8 +23,10 @@ class SecurityConfiguration(
     fun securityFilterChain(http: HttpSecurity) : SecurityFilterChain {
         http
             .csrf { it.disable() }
-            .authorizeHttpRequests() {
-                it.anyRequest().authenticated()
+            .authorizeHttpRequests() { auth ->
+                auth
+                    .requestMatchers(AntPathRequestMatcher("/topicos/**")).hasAuthority("LEITURA_ESCRITA")
+                    .anyRequest().authenticated()
             }
             .sessionManagement {
                 it.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
