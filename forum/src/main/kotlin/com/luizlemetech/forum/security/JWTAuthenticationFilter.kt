@@ -18,13 +18,16 @@ class JWTAuthenticationFilter(
         response: HttpServletResponse,
         filterChain: FilterChain
     ) {
-        val header = request.getHeader("Authorization")
-        val token = extractBearerToken(header)
+        val token = extractBearerToken(request.getHeader("Authorization"))
 
-        if (token != null && jwtUtil.isValid(token)) {
+        if (!token.isNullOrBlank() && jwtUtil.isValid(token) &&
+            SecurityContextHolder.getContext().authentication == null) {
+
             val username = jwtUtil.getUsername(token)
-            if (!username.isNullOrBlank() && SecurityContextHolder.getContext().authentication == null) {
-                val auth = UsernamePasswordAuthenticationToken(username, null, emptyList())
+            val authorities = jwtUtil.getAuthorities(token) // << não deixe emptyList()
+
+            if (!username.isNullOrBlank()) {
+                val auth = UsernamePasswordAuthenticationToken(username, null, authorities)
                 auth.details = WebAuthenticationDetailsSource().buildDetails(request)
                 SecurityContextHolder.getContext().authentication = auth
             }
@@ -36,7 +39,6 @@ class JWTAuthenticationFilter(
     private fun extractBearerToken(header: String?): String? {
         if (header.isNullOrBlank()) return null
         if (!header.startsWith("Bearer ")) return null
-        val token = header.substring("Bearer ".length).trim()
-        return if (token.count { it == '.' } == 2) token else token
+        return header.removePrefix("Bearer ").trim()
     }
 }

@@ -46,6 +46,7 @@ class SecurityConfiguration(
             .sessionManagement { it.sessionCreationPolicy(SessionCreationPolicy.STATELESS) }
             .authorizeHttpRequests {
                 it.requestMatchers("/login").permitAll()
+                it.requestMatchers("/topicos/**").hasAuthority("LEITURA_ESCRITA")
                 it.anyRequest().authenticated()
             }
             .authenticationProvider(daoAuthProvider())

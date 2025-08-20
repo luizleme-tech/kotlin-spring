@@ -16,4 +16,4 @@ spring:
 jwt:
   # 32 bytes (256 bits) em Base64 como exemplo (NÃO usar em produção):
   secret: "uL9K4X2i1e2tYZH7mGcvjR1o9D0YfY2A9BzKc4gT1nQ="
-  expiration: 360000
+  expiration: 3600000
