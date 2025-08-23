@@ -94,12 +94,26 @@ spring:
       path: /h2-console
 ```
 
+--- 
+
+## Gerando a Imagem Docker e Executando
+
+1. Gerar a imagem a partir de uma imagem Java 17
+
+```
+docker build -t forum -f Dockerfile .
+```
+2. Executando a aplicação 
+```
+docker run -p 3080:8080 forum
+```
+a aplicação vai responder em http://localhost:3080/
+
 ---
 
 ## Autor
 | [<img loading="lazy" src="https://avatars.githubusercontent.com/u/160872945?v=4" width=115><br><sub>Luiz Henrique Leme</sub>](https://github.com/luizleme-tech) |
 | :-------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-
 
 ---
 
