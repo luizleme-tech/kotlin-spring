@@ -10,5 +10,6 @@ fun Topico.toView(): TopicoView {
         this.mensagem,
         this.status,
         this.dataCriacao,
+        this.dataAlteracao
     )
 }

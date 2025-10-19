@@ -24,6 +24,6 @@ data class Topico (
     @Enumerated(value = EnumType.STRING)
     val status: StatusTopico = StatusTopico.NAO_RESPONDIDO,
     @OneToMany(mappedBy = "topico")
-    var respostas: List<Resposta> = ArrayList()
-
+    var respostas: List<Resposta> = ArrayList(),
+    var dataAlteracao: LocalDateTime? = null
 )

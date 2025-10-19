@@ -12,6 +12,7 @@ import jakarta.transaction.Transactional
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
+import java.time.LocalDateTime
 
 @Service
 class TopicoService(
@@ -52,6 +53,7 @@ class TopicoService(
             .orElseThrow { NotFoundException(notFoundMessage) }
         topico.titulo = form.titulo
         topico.mensagem = form.mensagem
+        topico.dataAlteracao = LocalDateTime.now()
         return topicoViewMapper.map(topico)
     }
 
