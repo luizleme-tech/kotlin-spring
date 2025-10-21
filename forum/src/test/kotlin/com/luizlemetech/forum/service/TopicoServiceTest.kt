@@ -3,11 +3,13 @@ package com.luizlemetech.forum.service
 import com.luizlemetech.forum.exception.NotFoundException
 import com.luizlemetech.forum.mapper.TopicoFormMapper
 import com.luizlemetech.forum.mapper.TopicoViewMapper
+import com.luizlemetech.forum.model.Topico
 import com.luizlemetech.forum.model.TopicoTest
 import com.luizlemetech.forum.model.TopicoViewTest
 import com.luizlemetech.forum.repository.TopicoRepository
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.slot
 import io.mockk.verify
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
@@ -17,7 +19,7 @@ import org.springframework.data.domain.Pageable
 import java.util.Optional
 
 class TopicoServiceTest {
-
+    val topico = TopicoTest.build()
     val topicos = PageImpl(listOf(TopicoTest.build()))
 
     val paginacao: Pageable = mockk()
@@ -40,13 +42,19 @@ class TopicoServiceTest {
 
     @Test
     fun `deve listar topicos a partir do nome do curso` () {
-        every { topicoViewMapper.map(any())} returns TopicoViewTest.build()
+        val slot = slot<Topico>()
+        every { topicoViewMapper.map(capture(slot))} returns TopicoViewTest.build()
 
-        topicoService.listar("Kotlin avançado", paginacao)
+        topicoService.listar("Kotlin avancado", paginacao)
 
         verify(exactly = 1) { topicoRepository.findByCursoNome(any(), any())}
         verify(exactly = 1) { topicoViewMapper.map(any())}
         verify(exactly = 0) { topicoRepository.findAll(paginacao)}
+
+        assertThat(slot.captured.titulo).isEqualTo(topico.titulo)
+        assertThat(slot.captured.mensagem).isEqualTo(topico.mensagem)
+        assertThat(slot.captured.status).isEqualTo(topico.status)
+
     }
 
     @Test
