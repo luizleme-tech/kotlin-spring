@@ -18,6 +18,18 @@ class JWTAuthenticationFilter(
         response: HttpServletResponse,
         filterChain: FilterChain
     ) {
+        val publicPaths = listOf(
+            "/login",
+            "/swagger-ui/**",
+            "/v3/api-docs/**",
+            "/swagger-resources/**",
+            "/webjars/**"
+        )
+        if (publicPaths.any { request.requestURI.startsWith(it) }) {
+            filterChain.doFilter(request, response)
+            return
+        }
+
         val token = extractBearerToken(request.getHeader("Authorization"))
 
         if (!token.isNullOrBlank() && jwtUtil.isValid(token) &&

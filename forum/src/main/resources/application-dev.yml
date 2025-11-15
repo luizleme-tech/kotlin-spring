@@ -16,3 +16,21 @@ jwt:
   # 32 bytes (256 bits) em Base64 como exemplo (NÃO usar em produção):
   secret: "uL9K4X2i1e2tYZH7mGcvjR1o9D0YfY2A9BzKc4gT1nQ="
   expiration: 3600000
+
+# Configuração do SpringDoc OpenAPI
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+    enabled: true
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+    operations-sorter: method
+    tags-sorter: alpha
+  show-actuator: false
+
+logging:
+  level:
+    org.springdoc: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.web: DEBUG

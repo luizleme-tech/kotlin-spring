@@ -46,6 +46,16 @@ class SecurityConfiguration(
             .sessionManagement { it.sessionCreationPolicy(SessionCreationPolicy.STATELESS) }
             .authorizeHttpRequests {
                 it.requestMatchers("/login").permitAll()
+                it.requestMatchers(
+                    "/marco",
+                    "/v3/api-docs/**",
+                    "/v3/api-docs.yaml",
+                    "/swagger-ui/**",
+                    "/swagger-ui.html",
+                    "/swagger-resources/**",
+                    "/configuration/**",
+                    "/webjars/**"
+                ).permitAll()
                 it.requestMatchers("/topicos/**").hasAuthority("LEITURA_ESCRITA")
                 it.anyRequest().authenticated()
             }
